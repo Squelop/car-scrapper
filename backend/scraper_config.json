@@ -1,0 +1,22 @@
+{
+    "scrapers": [
+        {
+            "platform": "otomoto",
+            "search_url": "https://www.otomoto.pl/osobowe",
+            "pages": 3,
+            "description": "General car listings from Otomoto"
+        },
+        {
+            "platform": "olx",
+            "search_url": "https://www.olx.pl/motoryzacja/samochody/",
+            "pages": 3,
+            "description": "General car listings from OLX"
+        },
+        {
+            "platform": "autoplac",
+            "search_url": "https://www.autoplac.pl/osobowe",
+            "pages": 2,
+            "description": "General car listings from Autoplac"
+        }
+    ]
+}
