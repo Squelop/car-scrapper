@@ -1,13 +1,13 @@
 from abc import ABC, abstractmethod
 from typing import List, Dict, Any
-from playwright.async_api import Page, AsyncPlaywright
+from playwright.async_api import Page
 
 class BaseScraper(ABC):
     def __init__(self, platform_name: str):
         self.platform_name = platform_name
 
     @abstractmethod
-    async def scrape(self, playwright: AsyncPlaywright, search_url: str, limit_pages: int = 1) -> List[Dict[str, Any]]:
+    async def scrape(self, playwright, search_url: str, limit_pages: int = 1) -> List[Dict[str, Any]]:
         """
         Scrapes listings from a given search URL.
         """
@@ -19,3 +19,4 @@ class BaseScraper(ABC):
         Parses a single listing HTML block/page into a dictionary.
         """
         pass
+
