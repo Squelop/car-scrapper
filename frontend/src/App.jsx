@@ -14,7 +14,8 @@ function App() {
 
             // Try static data first (for GitHub Pages deployment)
             try {
-                const staticRes = await fetch('/data/listings.json')
+                // Użyj import.meta.env.BASE_URL aby pobrać właściwą ścieżkę bazową
+                const staticRes = await fetch(`${import.meta.env.BASE_URL}data/listings.json`)
                 if (staticRes.ok) {
                     const data = await staticRes.json()
                     setListings(data)
@@ -118,3 +119,4 @@ function App() {
 }
 
 export default App
+
