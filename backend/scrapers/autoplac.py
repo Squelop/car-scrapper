@@ -1,6 +1,6 @@
 import asyncio
 from typing import List, Dict, Any
-from playwright.async_api import AsyncPlaywright, Page
+from playwright.async_api import Page
 from bs4 import BeautifulSoup
 from .base import BaseScraper
 import re
@@ -9,7 +9,7 @@ class AutoplacScraper(BaseScraper):
     def __init__(self):
         super().__init__("autoplac")
 
-    async def scrape(self, playwright: AsyncPlaywright, search_url: str, limit_pages: int = 1) -> List[Dict[str, Any]]:
+    async def scrape(self, playwright, search_url: str, limit_pages: int = 1) -> List[Dict[str, Any]]:
         results = []
         browser = await playwright.chromium.launch(headless=True)
         context = await browser.new_context(
@@ -210,3 +210,4 @@ class AutoplacScraper(BaseScraper):
             "location": location,
             "condition": condition
         }
+
