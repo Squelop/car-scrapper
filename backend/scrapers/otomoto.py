@@ -1,6 +1,6 @@
 import asyncio
 from typing import List, Dict, Any
-from playwright.async_api import AsyncPlaywright, Page
+from playwright.async_api import Page
 from bs4 import BeautifulSoup
 from .base import BaseScraper
 import re
@@ -10,7 +10,7 @@ class OtomotoScraper(BaseScraper):
     def __init__(self):
         super().__init__("otomoto")
 
-    async def scrape(self, playwright: AsyncPlaywright, search_url: str, limit_pages: int = 1) -> List[Dict[str, Any]]:
+    async def scrape(self, playwright, search_url: str, limit_pages: int = 1) -> List[Dict[str, Any]]:
         results = []
         browser = await playwright.chromium.launch(headless=False) # Headless=False to avoid some detections
         context = await browser.new_context(
@@ -217,3 +217,4 @@ class OtomotoScraper(BaseScraper):
             "location": location,
             "created_at_source": created_at_source
         }
+
