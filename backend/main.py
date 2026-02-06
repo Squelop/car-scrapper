@@ -1,12 +1,20 @@
+from pathlib import Path
+import sys
+from typing import List, Optional
+
 from fastapi import FastAPI, Depends, BackgroundTasks, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
-from typing import List, Optional
-from .database import engine, Base, get_db
-from .models import Listing
-from .scrapers.otomoto import OtomotoScraper
 from playwright.async_api import async_playwright
 import uvicorn
+
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.append(str(ROOT_DIR))
+
+from backend.database import engine, Base, get_db
+from backend.models import Listing
+from backend.scrapers.otomoto import OtomotoScraper
 
 Base.metadata.create_all(bind=engine)
 
