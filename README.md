@@ -46,6 +46,15 @@ pip install -r requirements.txt
 playwright install chromium
 ```
 
+#### Run API Server
+```bash
+# From repo root
+python -m backend.main
+
+# Or with Uvicorn
+uvicorn backend.main:app --reload
+```
+
 #### Run Scrapers Locally
 ```bash
 cd backend

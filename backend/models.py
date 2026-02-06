@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, Text
 from sqlalchemy.sql import func
-from .database import Base
+from backend.database import Base
 
 class Listing(Base):
     __tablename__ = "listings"
