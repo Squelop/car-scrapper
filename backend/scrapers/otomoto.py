@@ -4,7 +4,6 @@ from playwright.async_api import Page
 from bs4 import BeautifulSoup
 from .base import BaseScraper
 import re
-from ..models import Listing
 
 class OtomotoScraper(BaseScraper):
     def __init__(self):
@@ -217,4 +216,5 @@ class OtomotoScraper(BaseScraper):
             "location": location,
             "created_at_source": created_at_source
         }
+
 
