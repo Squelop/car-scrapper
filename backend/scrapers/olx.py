@@ -1,6 +1,6 @@
 import asyncio
 from typing import List, Dict, Any
-from playwright.async_api import AsyncPlaywright, Page
+from playwright.async_api import Page
 from bs4 import BeautifulSoup
 from .base import BaseScraper
 import re
@@ -197,3 +197,4 @@ class OLXScraper(BaseScraper):
             "location": location,
             "created_at_source": date_posted
         }
+
