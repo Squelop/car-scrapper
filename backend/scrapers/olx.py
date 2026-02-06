@@ -10,7 +10,7 @@ class OLXScraper(BaseScraper):
     def __init__(self):
         super().__init__("olx")
 
-    async def scrape(self, playwright: AsyncPlaywright, search_url: str, limit_pages: int = 1) -> List[Dict[str, Any]]:
+    async def scrape(self, playwright, search_url: str, limit_pages: int = 1) -> List[Dict[str, Any]]:
         results = []
         browser = await playwright.chromium.launch(headless=True)
         context = await browser.new_context(
@@ -197,4 +197,5 @@ class OLXScraper(BaseScraper):
             "location": location,
             "created_at_source": date_posted
         }
+
 
